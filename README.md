@@ -1,18 +1,12 @@
-TechX team
-
-Data Science Boot Camp Project
-
-Georgia Institute of Technology
+TechX team; 
+Data Science Boot Camp Project; 
+Georgia Institute of Technology.
 
 Collaborators:
-
-Zhixian Liding
-
-Anastasiya Masalava 
-
-Tejas Shah
-
-Karthik Kundurthy
+Zhixian Liding; 
+Anastasiya Masalava; 
+Tejas Shah;
+Karthik Kundurthy.
 
 Overview of the project:
 Our project will be a database web application that will provide access to information about Tech companies in the United States,
