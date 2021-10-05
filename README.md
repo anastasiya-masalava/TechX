@@ -1,11 +1,17 @@
 TechX team
+
 Data Science Boot Camp Project
+
 Georgia Institute of Technology
 
 Collaborators:
+
 Zhixian Liding
+
 Anastasiya Masalava 
-Tejas Shah 
+
+Tejas Shah
+
 Karthik Kundurthy
 
 Overview of the project:
