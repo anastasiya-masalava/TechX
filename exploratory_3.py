@@ -8,7 +8,8 @@ minidf = df[['name', 'funding_total_usd']]
 minidf = minidf[minidf['funding_total_usd'] < 5000000000]
 minidf = minidf.dropna(axis=0, how='any')
 
-print(minidf)
+print(df[df['funding_total_usd'] > 5000000000].count)
+
 plt.hist(minidf["funding_total_usd"], bins=20)
 plt.yscale('log')
 plt.title('Distribution of Funding (Less than $5 Billion) Per Company (n>60,000)')
