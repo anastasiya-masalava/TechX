@@ -1,3 +1,3 @@
-infile=open("companies.csv")
-headers=infile.readline()
-data=infile.readlines()
+import pandas as pd
+df=pd.read_csv("companies.csv")
+print(df)
