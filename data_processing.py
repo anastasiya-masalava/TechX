@@ -16,8 +16,3 @@ df['founded_at'].fillna(method="backfill", inplace=True)
 
 #create a new .csv file
 df.to_csv("datasets/new_companies.csv", index = False)
-'''
-string_data=str(df)
-list_data=string_data.split(",")
-print(list_data)
-'''
