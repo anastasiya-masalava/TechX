@@ -1,29 +1,29 @@
 import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
-df = pd.read_csv("datasets/clean_companies.csv")
-df = df[["category_list", "funding_total_usd"]]
-df.rename(columns={"category_list":"category", "funding_total_usd":"funding"}, inplace=True)
-#df = df.dropna(axis=0, how = 'any')
 
-
-newdf=pd.DataFrame(columns=["category", "funding"])
+df = pd.read_csv("datasets/new_df.csv")
+new_dic={}
+for cat in df["category"]:
+    if cat not in new_dic:
+        new_dic[cat]=1
+    else:
+        new_dic[cat]+=1
+dic2 = {v: k for k, v in new_dic.items()}
+new_list=list(dic2.keys())
+new_list.sort()
+new_list.reverse()
+columns=[]
+for i in range(2):
+    columns.append(dic2[new_list[i]])
+    print(new_dic[dic2[new_list[i]]])
+print(columns)
+new_df=pd.DataFrame(columns=["category", "funding", "country"])
 index=0
-
+country_list=["USA", "GBR", "CAN"]
 for category in df["category"]:
-    try:
-        catList=category.split("|")
-        if len(catList) == 1:
-            fund = df["funding"][index]
-            newdf = newdf.append({'category':category, "funding":fund}, ignore_index=True)
-        else:
-            fund = df["funding"][index]
-            for i in catList:
-                newdf = newdf.append({'category': i, "funding": fund}, ignore_index=True)
-
-    except:
-        pass
-    index += 1
-newdf = newdf.dropna(axis=0, how = 'any')
-newdf.to_csv("datasets/new_df.csv", index = False)
+    count = df["country"][index]
+    if (category in columns) and (count in country_list):
+        fund = df["funding"][index]
+        new_df = new_df.append({'category': category, "funding": fund, "country": count}, ignore_index=True)
+    index+=1
+new_df = pd.concat([new_df, pd.get_dummies(new_df['country'])], axis = 1).drop(columns = ['country'])
+new_df.to_csv("datasets/MLfile2.csv", index = False)
